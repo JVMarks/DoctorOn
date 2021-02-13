@@ -1,0 +1,22 @@
+﻿@model  DoctorOn.Models.UsuarioModel
+
+@using (Html.BeginForm("CreateAcount", "Usuario", FormMethod.Post, , new { @class = "form" }))
+{
+    @Html.ValidationMessage("usuario.Invalido")
+<div>
+    @Html.LabelFor(u => u.Email, "Digite um E-mail valido:*", new { @class = "formlabel" })
+    @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
+    @Html.ValidationMessageFor(u => u.Email)
+
+    @Html.LabelFor(u => u.Senha, "Digite senha:*", new { @class = "formlabel" })
+    @Html.TextBoxFor(u => u.Senha, new { @class = "form-control" })
+    @Html.ValidationMessageFor(u => u.Senha)
+
+    @Html.LabelFor(u => u.ConfirmarSenha, "Confirmar senha:*", new { @class = "formlabel" })
+    @Html.TextBoxFor(u => u.ConfirmarSenha, new { @class = "form-control" })
+    @Html.ValidationMessageFor(u => u.ConfirmarSenha)
+
+    <input type="submit" value="Cadastrar" class="form-btn" />
+</div>
+}
+

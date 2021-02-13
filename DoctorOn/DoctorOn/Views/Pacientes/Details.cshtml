@@ -1,0 +1,82 @@
+﻿@model DoctorOn.Entidades.Paciente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Paciente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_completo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datadenacimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datadenacimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_do_convenio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_do_convenio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula_do_convenio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula_do_convenio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
