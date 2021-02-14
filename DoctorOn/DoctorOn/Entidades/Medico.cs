@@ -20,7 +20,7 @@ namespace DoctorOn.Entidades
         public Especialidade Especialidade { get; set; }
 
         //CRIAÇÃO DA FK
-        public int AgendaId { get; set; }
+        public int Id_Agenda { get; set; }
 
         public Agenda Agenda { get; set; }
     }

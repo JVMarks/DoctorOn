@@ -88,8 +88,6 @@ D:\trabalho\DoctorOn\DoctorOn\bin\EntityFramework.dll
 D:\trabalho\DoctorOn\DoctorOn\bin\EntityFramework.SqlServer.dll
 D:\trabalho\DoctorOn\DoctorOn\bin\EntityFramework.xml
 D:\trabalho\DoctorOn\DoctorOn\bin\EntityFramework.SqlServer.xml
-D:\trabalho\DoctorOn\DoctorOn\obj\Debug\DoctorOn.Migrations.TabelasTeste.resources
-D:\trabalho\DoctorOn\DoctorOn\obj\Debug\DoctorOn.csproj.GenerateResource.cache
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.dll
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.Web.Common.dll
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.Web.Mvc.dll
@@ -97,3 +95,5 @@ D:\trabalho\DoctorOn\DoctorOn\bin\WebActivatorEx.dll
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.xml
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.Web.Common.xml
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.Web.Mvc.xml
+D:\trabalho\DoctorOn\DoctorOn\obj\Debug\DoctorOn.Migrations.TabelasTeste.resources
+D:\trabalho\DoctorOn\DoctorOn\obj\Debug\DoctorOn.csproj.GenerateResource.cache

@@ -14,7 +14,7 @@ namespace DoctorOn.Entidades
         public float Valor { get; set; }
 
         //chave FK
-        public int AgendaId { get; set; }
+        public int Id_agenda { get; set; }
 
         public Agenda Agenda { get; set; }
 

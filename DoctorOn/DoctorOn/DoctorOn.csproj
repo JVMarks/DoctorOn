@@ -158,9 +158,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102101845549_TabelasTeste.cs" />
-    <Compile Include="Migrations\202102101845549_TabelasTeste.designer.cs">
-      <DependentUpon>202102101845549_TabelasTeste.cs</DependentUpon>
+    <Compile Include="Migrations\202102141423402_TabelasTeste.cs" />
+    <Compile Include="Migrations\202102141423402_TabelasTeste.Designer.cs">
+      <DependentUpon>202102141423402_TabelasTeste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
@@ -249,11 +249,6 @@
     <Content Include="Views\Usuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102101845549_TabelasTeste.resx">
-      <DependentUpon>202102101845549_TabelasTeste.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -266,7 +261,11 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202102141423402_TabelasTeste.resx">
+      <DependentUpon>202102141423402_TabelasTeste.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

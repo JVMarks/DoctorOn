@@ -14,15 +14,15 @@ namespace DoctorOn.Entidades
         public string Observacao { get; set; }
 
         //chave FK
-        public int PacienteId { get; set; }
+        public int Id_paciente { get; set; }
 
         public Paciente Paciente { get; set; }
 
-        public int MedicoId { get; set; }
+        public int Id_medico { get; set; }
 
         public Medico Medico { get; set; }
 
-        public int TipoDeAtendimentoId { get; set; }
+        public int Id_tipoDeAtendimento { get; set; }
 
         public TipoDeAtendimento TipodeAtendimento { get; set; }
 
