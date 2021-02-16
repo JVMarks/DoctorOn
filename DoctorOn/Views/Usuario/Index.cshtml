@@ -1,0 +1,36 @@
+﻿@model  DoctorOn.Models.UsuarioModel
+
+<link rel="stylesheet" href="~/Content/loginout.css" />
+
+<div class="bgline"></div>
+<div class="login">
+    <div class="login-wrap">
+        <!--
+        <svg class="header-logo">
+            <use xlink:href="#logo"></use>
+        </svg>
+           
+        -->
+        <div id="signinbox">
+            @using (Html.BeginForm("CreateAcount", "Usuario", FormMethod.Post, new { @id = "signinform" }))
+            {
+                <h3 class="formlabel">Crie já sua conta para visualizar nossos medicos disponiveis</h3>
+                @Html.ValidationMessage("usuario.Invalido", new { @class = "alert" } )
+
+                <div class="center">
+                    @Html.TextBoxFor(u => u.Email, new { placeholder = "Digite seu E-mail", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Email)
+
+                    @Html.TextBoxFor(u => u.Senha, new { placeholder = "Digite sua Senha", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Senha)
+
+                    @Html.TextBoxFor(u => u.ConfirmarSenha, new { placeholder = "Confirme sua Senha", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.ConfirmarSenha)
+                </div>
+
+                <input id="loginsubmit" type="submit" value="Cadastrar" class="inputsubmit" />
+
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,134 @@
+﻿a {
+    cursor: pointer;
+}
+
+input:focus, button:focus {
+    outline: none;
+}
+
+.bgline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: url('../Assets/Img/img5.jpg') no-repeat center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.header-logo {
+    width: 100%;
+    height: 40px;
+    float: left;
+    margin: 30px 0 40px 0;
+}
+
+.login {
+    display: flex;
+    align-items:center;
+    flex-direction:column;
+    height: 100vh;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.login-wrap {
+    background: rgba(0, 0, 58, 0.8);
+    width: calc(100% - 140px);
+    padding: calc(50vh - 259px) 70px;
+    overflow: auto;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+}
+
+#signinbox {
+    display: block;
+    float: left;
+    margin-bottom: 90px;
+}
+
+@media (max-height: 518px) {
+    #signinbox {
+        margin-bottom: calc((100vh - 404px));
+    }
+}
+
+.formlabel {
+    color: #fff;
+}
+
+.inputfield {
+    height: 30px;
+    color: #fff;
+    padding: 1rem;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 14px;
+    width: calc(100% - 22px);
+    border: white solid 1px;
+    font-family: 'Roboto', sans-serif;
+    background: rgba(255, 255, 255, 0);
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputsubmit {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.25);
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+    .inputsubmit:active {
+        background: rgba(255, 255, 255, 0.35);
+    }
+
+.submitfunc:after {
+    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) 10px, rgba(0, 0, 0, 0) 10px, rgba(0, 0, 0, 0) 20px);
+    background-size: 300% 300%;
+    height: 40px;
+    width: 100%;
+    border: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    transition: all 1s ease-in-out;
+}
+
+.spf {
+    width: 100%;
+    line-height: 20px;
+    margin-top: 30px;
+    color: #fff;
+    float: left;
+    margin-bottom: 30px;
+}
+
+    .spf a {
+        width: 100%;
+        float: right;
+    }
+
+.alert {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: red;
+}
