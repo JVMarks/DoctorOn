@@ -21,5 +21,23 @@ namespace DoctorOn.DAO
             context.SaveChanges();
         }
 
+        /*
+        public void Details(Paciente paciente)
+        {
+            context.Pacientes.Find(paciente);
+        }
+
+        public void Edit(Paciente paciente)
+        {
+            context.Pacientes.
+            context.SaveChanges();
+        }
+
+        public void Delete(Paciente paciente)
+        {
+            context.Pacientes.Remove(paciente);
+            context.SaveChanges();
+        }*/
+
     }
 }

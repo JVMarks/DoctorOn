@@ -95,9 +95,9 @@ D:\trabalho\DoctorOn\DoctorOn\bin\WebActivatorEx.dll
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.xml
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.Web.Common.xml
 D:\trabalho\DoctorOn\DoctorOn\bin\Ninject.Web.Mvc.xml
-D:\trabalho\DoctorOn\DoctorOn\obj\Debug\DoctorOn.Migrations.TabelasTeste.resources
-D:\trabalho\DoctorOn\DoctorOn\obj\Debug\DoctorOn.csproj.GenerateResource.cache
 D:\trabalho\DoctorOn\DoctorOn\bin\WebMatrix.Data.dll
 D:\trabalho\DoctorOn\DoctorOn\bin\WebMatrix.WebData.dll
 D:\trabalho\DoctorOn\DoctorOn\bin\WebMatrix.Data.xml
 D:\trabalho\DoctorOn\DoctorOn\bin\WebMatrix.WebData.xml
+D:\trabalho\DoctorOn\DoctorOn\obj\Debug\DoctorOn.Migrations.TabelasTeste.resources
+D:\trabalho\DoctorOn\DoctorOn\obj\Debug\DoctorOn.csproj.GenerateResource.cache

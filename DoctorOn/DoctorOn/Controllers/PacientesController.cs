@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebMatrix.WebData;
+using System.Web.Security;
 using DoctorOn.DAO;
 using DoctorOn.Entidades;
+using DoctorOn.Models;
 
 namespace DoctorOn.Controllers
 {
-    [Authorize]
     public class PacientesController : Controller
     {
+
+
         private AgendamentoContext db = new AgendamentoContext();
 
         // GET: Pacientes
@@ -45,8 +49,6 @@ namespace DoctorOn.Controllers
         }
 
         // POST: Pacientes/Create
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Nome_completo,Cpf,Sexo,Datadenacimento,Endereco,Telefone,Nome_do_convenio,Matricula_do_convenio")] Paciente paciente)
@@ -77,8 +79,6 @@ namespace DoctorOn.Controllers
         }
 
         // POST: Pacientes/Edit/5
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Nome_completo,Cpf,Sexo,Datadenacimento,Endereco,Telefone,Nome_do_convenio,Matricula_do_convenio")] Paciente paciente)

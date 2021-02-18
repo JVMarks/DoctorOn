@@ -149,6 +149,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
+    <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PacientesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\AgendaDAO.cs" />
@@ -167,9 +168,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102141423402_TabelasTeste.cs" />
-    <Compile Include="Migrations\202102141423402_TabelasTeste.Designer.cs">
-      <DependentUpon>202102141423402_TabelasTeste.cs</DependentUpon>
+    <Compile Include="Migrations\202102181822090_TabelasTeste.cs" />
+    <Compile Include="Migrations\202102181822090_TabelasTeste.Designer.cs">
+      <DependentUpon>202102181822090_TabelasTeste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgendaModel.cs" />
@@ -207,6 +208,9 @@
     <Content Include="Assets\Img\img7.jpg" />
     <Content Include="Assets\Img\img8.jpg" />
     <Content Include="Assets\Img\img9.jpg" />
+    <Content Include="Assets\Img\persona1.jpg" />
+    <Content Include="Assets\Img\persona2.jpg" />
+    <Content Include="Assets\Img\persona3.jpg" />
     <Content Include="Assets\Parceiros\parceiro1.png" />
     <Content Include="Assets\Parceiros\parceiro2.png" />
     <Content Include="Assets\social\codepen.svg" />
@@ -220,6 +224,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\home2.css" />
     <Content Include="Content\home.css" />
     <Content Include="Content\global.css" />
     <Content Include="Content\loginout.css" />
@@ -278,12 +283,13 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102141423402_TabelasTeste.resx">
-      <DependentUpon>202102141423402_TabelasTeste.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Views\Medico\" />
+    <Folder Include="Views\Paciente\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Medico\" />
+    <EmbeddedResource Include="Migrations\202102181822090_TabelasTeste.resx">
+      <DependentUpon>202102181822090_TabelasTeste.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

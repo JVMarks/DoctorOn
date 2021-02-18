@@ -46,14 +46,24 @@
         <div class="info__wrapper">
             <div class="info current--info">
                 <h1 class="text name">MEDICO</h1>
-                <h4 class="text location">CRIAR CONTA</h4>
-                <p class="text description">Entrar como Medico</p>
+                <h4 class="text location">
+                    @Html.ActionLink("CRIAR CONTA", "Index", "Home", null, new { style = "text-decoration:none", @class = "text" })
+                </h4>
+                <p class="text description">
+
+                    @Html.ActionLink("Entrar como Medico", "Index", "Home", null, new { style = "text-decoration:none", @class = "text" })
+                </p>
             </div>
 
             <div class="info next--info">
                 <h1 class="text name">PACIENTE</h1>
-                <h4 class="text location">CRIAR CONTA</h4>
-                <p class="text description">Entrar como paciente</p>
+                <h4 class="text location">
+                @Html.ActionLink("CRIAR CONTA", "Index", "Home", null, new { style = "text-decoration:none", @class = "text" })
+                </h4>
+                <p class="text description">
+
+                @Html.ActionLink("Entrar como Paciente", "Index", "Home", null, new { style = "text-decoration:none", @class = "text" })
+                </p>
             </div>
 
             <div class="info previous--info">

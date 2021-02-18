@@ -15,7 +15,7 @@ namespace DoctorOn.Entidades
 
         public string Telefone { get; set; }
 
-        public int CRM { get; set; }
+        public string CRM { get; set; }
 
         public Especialidade Especialidade { get; set; }
 

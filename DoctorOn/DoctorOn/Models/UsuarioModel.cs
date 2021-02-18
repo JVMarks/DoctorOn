@@ -15,12 +15,10 @@ namespace DoctorOn.Models
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Password")]
         public string Senha { get; set; }
 
         //comparação para verificação de senha
         [Compare("Senha")]
-        [Display(Name = "Confirmar password")]
         public string ConfirmarSenha { get; set; }
 
     }

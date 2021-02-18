@@ -17,9 +17,9 @@ namespace DoctorOn.DAO
             this.context = context;
         }
 
-        public void CreateAcount(Usuario Usuario)
+        public void CreateAcount(Usuario usuario)
         {
-            context.Usuarios.Add(Usuario);
+            context.Usuarios.Add(usuario);
             context.SaveChanges();
         }       
     }

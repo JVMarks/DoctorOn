@@ -12,7 +12,7 @@ namespace DoctorOn.Entidades
 
         public string Nome_completo { get; set; }
 
-        public int Cpf { get; set; }
+        public string Cpf { get; set; }
 
         public Sexo Sexo { get; set; }
 
