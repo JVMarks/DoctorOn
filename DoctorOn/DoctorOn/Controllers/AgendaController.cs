@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using WebMatrix.WebData;
 using System.Web.Security;
 using DoctorOn.DAO;
 using DoctorOn.Entidades;
 using DoctorOn.Models;
+
+using System.Net;
+using System.Data;
+using System.Data.Entity;
+using System.Threading.Tasks;
+
 
 namespace DoctorOn.Controllers
 {
@@ -17,6 +22,8 @@ namespace DoctorOn.Controllers
         private AgendaDAO agendaDAO;
         private MedicoDAO medicoDAO;
         private PacienteDAO pacienteDAO;
+
+        private AgendamentoContext contextdb = new AgendamentoContext();
 
         public AgendaController(AgendaDAO agendaDAO,MedicoDAO medicoDAO, PacienteDAO pacienteDAO)
         {
@@ -55,6 +62,15 @@ namespace DoctorOn.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                contextdb.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
     }

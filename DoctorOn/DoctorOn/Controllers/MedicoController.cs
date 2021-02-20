@@ -34,6 +34,16 @@ namespace DoctorOn.Controllers
             return View();
         }
 
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public ActionResult CreateMedic(MedicoModel model)
         {
             if (ModelState.IsValid)
@@ -77,20 +87,7 @@ namespace DoctorOn.Controllers
         }
 
         //CRUD
-        public async Task<ActionResult> Details(int? Id)
-        {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Medico medico = await contextdb.Medicos.FindAsync(Id);
-            if (medico == null)
-            {
-                return HttpNotFound();
-            }
-            return View(medico);
-        }
-
+        [Authorize]
         public async Task<ActionResult> Edit(int? Id)
         {
             if (Id == null)
@@ -107,6 +104,7 @@ namespace DoctorOn.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Nome_completo,Endereco,Telefone,CRM,Especialidade")] Medico medico)
         {
             if (ModelState.IsValid)
@@ -114,20 +112,6 @@ namespace DoctorOn.Controllers
                 contextdb.Entry(medico).State = EntityState.Modified;
                 await contextdb.SaveChangesAsync();
                 return RedirectToAction("Index");
-            }
-            return View(medico);
-        }
-
-        public async Task<ActionResult> Delete(int? Id)
-        {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Medico medico = await contextdb.Medicos.FindAsync(Id);
-            if (medico == null)
-            {
-                return HttpNotFound();
             }
             return View(medico);
         }
@@ -140,6 +124,15 @@ namespace DoctorOn.Controllers
             contextdb.Medicos.Remove(medico);
             await contextdb.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                contextdb.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
     }

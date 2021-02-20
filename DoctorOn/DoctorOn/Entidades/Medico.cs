@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,14 +10,21 @@ namespace DoctorOn.Entidades
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "O nome do usuário é obrigatório", AllowEmptyStrings = false)]
         public string Nome_completo { get; set; }
 
+        [Required]
         public string Endereco { get; set; }
 
+        [Required]
+        [StringLength(17)]
         public string Telefone { get; set; }
 
+        [Required]
+        [StringLength(10)]
         public string CRM { get; set; }
 
+        [Required]
         public Especialidade Especialidade { get; set; }
 
         //CRIAÇÃO DA FK

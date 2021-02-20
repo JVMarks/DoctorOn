@@ -59,8 +59,8 @@ input:focus, button:focus {
 }
 
 .inputfield {
-    height: 30px;
-    color: #fff;
+    height: 40px;
+    color: #aaf;
     padding: 1rem;
     font-size: 14px;
     text-align: center;
@@ -87,7 +87,7 @@ input:focus, button:focus {
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.25);
     text-align: center;
-    color: #fff;
+    color: #aaf;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     position: relative;

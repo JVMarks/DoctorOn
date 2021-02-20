@@ -150,7 +150,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
-    <Compile Include="Controllers\PacientesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\AgendaDAO.cs" />
     <Compile Include="DAO\AgendamentoContext.cs" />
@@ -260,14 +259,17 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
-    <Content Include="Views\Pacientes\Create.cshtml" />
-    <Content Include="Views\Pacientes\Delete.cshtml" />
-    <Content Include="Views\Pacientes\Details.cshtml" />
-    <Content Include="Views\Pacientes\Edit.cshtml" />
-    <Content Include="Views\Pacientes\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Agenda\Index.cshtml" />
+    <Content Include="Views\Paciente\Edit.cshtml" />
+    <Content Include="Views\Paciente\Index.cshtml" />
+    <Content Include="Views\Paciente\Create.cshtml" />
+    <Content Include="Views\Paciente\Login.cshtml" />
+    <Content Include="Views\Medico\Index.cshtml" />
+    <Content Include="Views\Medico\Create.cshtml" />
+    <Content Include="Views\Medico\Login.cshtml" />
+    <Content Include="Views\Medico\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -282,10 +284,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Medico\" />
-    <Folder Include="Views\Paciente\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202102181822090_TabelasTeste.resx">
       <DependentUpon>202102181822090_TabelasTeste.cs</DependentUpon>

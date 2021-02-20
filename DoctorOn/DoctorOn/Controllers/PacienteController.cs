@@ -28,8 +28,18 @@ namespace DoctorOn.Controllers
         }
 
         // GET: Paciente
-        //[Authorize]
+        [Authorize]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
         {
             return View();
         }
@@ -81,20 +91,7 @@ namespace DoctorOn.Controllers
         }
 
         //CRUD
-        public async Task<ActionResult> Details(int? Id)
-        {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Paciente paciente = await contextdb.Pacientes.FindAsync(Id);
-            if (paciente == null)
-            {
-                return HttpNotFound();
-            }
-            return View(paciente);
-        }
-
+        [Authorize]
         public async Task<ActionResult> Edit(int? Id)
         {
             if (Id == null)
@@ -122,6 +119,7 @@ namespace DoctorOn.Controllers
             return View(paciente);
         }
 
+        [Authorize]
         public async Task<ActionResult> Delete(int? Id)
         {
             if (Id == null)
@@ -146,6 +144,14 @@ namespace DoctorOn.Controllers
             return RedirectToAction("Index");
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                contextdb.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
     }
 }

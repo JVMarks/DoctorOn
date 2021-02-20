@@ -16,19 +16,19 @@
         <div class="cards__wrapper">
             <div class="card current--card">
                 <div class="card__image">
-                    <img src="~/Assets/Img/img12.jpg" alt="" />
+                    <img src="~/Assets/Img/img12.jpg" alt="medico" />
                 </div>
             </div>
 
             <div class="card next--card">
                 <div class="card__image">
-                    <img src="~/Assets/Img/img10.jpg" alt="" />
+                    <img src="~/Assets/Img/img10.jpg" alt="paciente" />
                 </div>
             </div>
 
             <div class="card previous--card">
                 <div class="card__image">
-                    <img src="~/Assets/Img/img13.jpg" alt="" />
+                    <img src="~/Assets/Img/img13.jpg" alt="empresa" />
                 </div>
             </div>
         </div>
@@ -47,22 +47,22 @@
             <div class="info current--info">
                 <h1 class="text name">MEDICO</h1>
                 <h4 class="text location">
-                    @Html.ActionLink("CRIAR CONTA", "Index", "Home", null, new { style = "text-decoration:none", @class = "text" })
+                    @Html.ActionLink("CRIAR CONTA", "Create", "Medico", null, new { style = "text-decoration:none", @class = "text" })
                 </h4>
                 <p class="text description">
 
-                    @Html.ActionLink("Entrar como Medico", "Index", "Home", null, new { style = "text-decoration:none", @class = "text" })
+                    @Html.ActionLink("Entrar como Medico", "Login", "Medico", null, new { style = "text-decoration:none", @class = "text" })
                 </p>
             </div>
 
             <div class="info next--info">
                 <h1 class="text name">PACIENTE</h1>
                 <h4 class="text location">
-                @Html.ActionLink("CRIAR CONTA", "Index", "Home", null, new { style = "text-decoration:none", @class = "text" })
+                @Html.ActionLink("CRIAR CONTA", "Create", "Paciente", null, new { style = "text-decoration:none", @class = "text" })
                 </h4>
                 <p class="text description">
 
-                @Html.ActionLink("Entrar como Paciente", "Index", "Home", null, new { style = "text-decoration:none", @class = "text" })
+                @Html.ActionLink("Entrar como Paciente", "Login", "Paciente", null, new { style = "text-decoration:none", @class = "text" })
                 </p>
             </div>
 
@@ -77,13 +77,13 @@
 
     <div class="app__bg">
         <div class="app__bg__image current--image">
-            <img src="~/Assets/Img/img12.jpg" alt="" />
+            <img src="~/Assets/Img/img12.jpg" alt="medico" />
         </div>
         <div class="app__bg__image next--image">
-            <img src="~/Assets/Img/img10.jpg" alt="" />
+            <img src="~/Assets/Img/img10.jpg" alt="paciente" />
         </div>
         <div class="app__bg__image previous--image">
-            <img src="~/Assets/Img/img13.jpg" alt="" />
+            <img src="~/Assets/Img/img13.jpg" alt="empresa" />
         </div>
     </div>
 </div>
