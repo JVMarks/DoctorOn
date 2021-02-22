@@ -9,14 +9,25 @@ namespace DoctorOn.Models
 {
     public class AgendaModel
     {
+
         public int Id { get; set; }
 
         [Required]
-        public DateTime DataHora { get; set; }
+        public string Title { get; set; }
 
-        [Required]
         public string Observacao { get; set; }
 
+        [Required]
+        public DateTime Start { get; set; }
+
+        public DateTime End { get; set; }
+
+        public string ThemeColor { get; set; }
+
+        [Required]
+        public Boolean IsFullDay { get; set; }
+
+        /*
         [Required]
         public virtual Paciente Paciente { get; set; }
 
@@ -31,7 +42,7 @@ namespace DoctorOn.Models
         public int Id_medico { get; set; }
 
         public int Id_tipoDeAtendimento { get; set; }
-
+        */
 
     }
 }

@@ -9,7 +9,7 @@ using System.Web;
 //install-package EntityFramework
 //Enable-Migrations
 //add-migration TabelasTeste
-// update-Database
+//update-Database
 //Install-package Ninject.MVC3
 //simple membership
 //install-Package Microsoft.AspNet.WebPages.WebData 
@@ -28,16 +28,18 @@ namespace DoctorOn.DAO
 
         public DbSet<TipoDeAtendimento> TipoDeAtendimentos { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            //modelBuilder.Entity<Medico>().HasRequired(p => p.Agenda);
 
-            modelBuilder.Entity<Agenda>().HasRequired(d => d.Medico);
-            modelBuilder.Entity<Agenda>().HasRequired(p => p.Paciente);
-            modelBuilder.Entity<Agenda>().HasRequired(t => t.TipodeAtendimento);
+        /*
+       protected override void OnModelCreating(DbModelBuilder modelBuilder)
+       {
+           //modelBuilder.Entity<Medico>().HasRequired(p => p.Agenda);
 
-            //modelBuilder.Entity<TipoDeAtendimento>().HasRequired(m => m.Agenda);
-        }
+           modelBuilder.Entity<Agenda>().HasRequired(d => d.Medico);
+           modelBuilder.Entity<Agenda>().HasRequired(p => p.Paciente);
+           modelBuilder.Entity<Agenda>().HasRequired(t => t.TipodeAtendimento);
+
+           //modelBuilder.Entity<TipoDeAtendimento>().HasRequired(m => m.Agenda);
+       }*/
 
     }
 }

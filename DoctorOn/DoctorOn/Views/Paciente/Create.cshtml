@@ -1,5 +1,4 @@
-﻿@model  DoctorOn.Entidades.Paciente
-
+﻿@model  DoctorOn.Models.PacienteModel
 
 <link rel="stylesheet" href="~/Content/loginout.css" />
 
@@ -9,7 +8,7 @@
         <div id="signinbox">
             @using (Html.BeginForm("CreatePaciente", "Paciente", FormMethod.Post, new { @id = "signinform" }))
             {
-                <h3 class="formlabel">Crie já sua conta para visualizar nossos medicos disponiveis</h3>
+            <h3 class="formlabel">Registrar-se como Paciente para agendar consultas</h3>
                 @Html.ValidationMessage("Paciente.Invalido", new { @class = "alert" })
 
                 <div class="center">

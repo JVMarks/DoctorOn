@@ -59,7 +59,7 @@ namespace DoctorOn.Controllers
                     };
                     medicoDAO.CreateMedic(medico);
                     WebSecurity.CreateAccount(model.Telefone, model.CRM);
-                    return RedirectToAction("Index", "Medico");
+                    return RedirectToAction("Calendar", "Agenda");
                 }
                 catch(MembershipPasswordException e)
                 {
@@ -73,11 +73,12 @@ namespace DoctorOn.Controllers
             }
         }
 
+        [Authorize]
         public ActionResult AuthenticationMedic(string Telefone, string CRM)
         {
             if (WebSecurity.Login(Telefone, CRM))
             {
-                return RedirectToAction("index", "Medico");
+                return RedirectToAction("Calendar", "Agenda");
             }
             else
             {

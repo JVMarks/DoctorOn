@@ -63,7 +63,7 @@ namespace DoctorOn.Controllers
                     };
                     pacienteDAO.CreatePaciente(paciente);
                     WebSecurity.CreateAccount(model.Cpf, model.Matricula_do_convenio);
-                    return RedirectToAction("Index", "Paciente");
+                    return RedirectToAction("Calendar", "Agenda");
                 }
                 catch (MembershipPasswordException e)
                 {
@@ -77,11 +77,12 @@ namespace DoctorOn.Controllers
             }
         }
 
+        [Authorize]
         public ActionResult AuthenticationPaciente(string Cpf, string Matricula_do_convenio)
         {
             if (WebSecurity.Login(Cpf, Matricula_do_convenio))
             {
-                return RedirectToAction("index", "Paciente");
+                return RedirectToAction("Calendar", "Agenda");
             }
             else
             {

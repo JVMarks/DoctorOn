@@ -1,4 +1,4 @@
-﻿@model  DoctorOn.Entidades.Medico
+﻿@model  DoctorOn.Models.MedicoModel
 
 
 <link rel="stylesheet" href="~/Content/loginout.css" />
@@ -7,10 +7,10 @@
 <div class="login">
     <div class="login-wrap">
         <div id="signinbox">
-            @using (Html.BeginForm("CreatePaciente", "Paciente", FormMethod.Post, new { @id = "signinform" }))
+            @using (Html.BeginForm("CreateMedic", "Medico", FormMethod.Post, new { @id = "signinform" }))
             {
-                <h3 class="formlabel">Crie já sua conta para visualizar nossos medicos disponiveis</h3>
-                @Html.ValidationMessage("Paciente.Invalido", new { @class = "alert" })
+            <h3 class="formlabel">Registrar-se como médico para fazer parte da equipe</h3>
+                @Html.ValidationMessage("Medico.Invalido", new { @class = "alert" })
 
         <div class="center">
             @Html.TextBoxFor(u => u.Nome_completo, new { placeholder = "Digite seu Nome completo", @class = "inputfield" })

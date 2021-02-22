@@ -167,9 +167,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102181822090_TabelasTeste.cs" />
-    <Compile Include="Migrations\202102181822090_TabelasTeste.Designer.cs">
-      <DependentUpon>202102181822090_TabelasTeste.cs</DependentUpon>
+    <Compile Include="Migrations\202102212349167_TabelasTeste.cs" />
+    <Compile Include="Migrations\202102212349167_TabelasTeste.Designer.cs">
+      <DependentUpon>202102212349167_TabelasTeste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgendaModel.cs" />
@@ -223,6 +223,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Calendar.css" />
     <Content Include="Content\home2.css" />
     <Content Include="Content\home.css" />
     <Content Include="Content\global.css" />
@@ -270,6 +271,7 @@
     <Content Include="Views\Medico\Create.cshtml" />
     <Content Include="Views\Medico\Login.cshtml" />
     <Content Include="Views\Medico\Edit.cshtml" />
+    <Content Include="Views\Agenda\Calendar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -284,10 +286,9 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102181822090_TabelasTeste.resx">
-      <DependentUpon>202102181822090_TabelasTeste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202102212349167_TabelasTeste.resx">
+      <DependentUpon>202102212349167_TabelasTeste.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

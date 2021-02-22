@@ -12,7 +12,7 @@ using System.Net;
 using System.Data;
 using System.Data.Entity;
 using System.Threading.Tasks;
-
+using System.Linq;
 
 namespace DoctorOn.Controllers
 {
@@ -32,6 +32,7 @@ namespace DoctorOn.Controllers
             this.pacienteDAO = pacienteDAO;
         }
 
+        
         public ActionResult Form_Schedular()
         {
             ViewBag.Agendas = agendaDAO.Schedule_list();
@@ -62,6 +63,67 @@ namespace DoctorOn.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Calendar()
+        {
+            return View();
+        }
+
+        public JsonResult GetEvents()
+        {
+            using (AgendamentoContext contextdb = new AgendamentoContext())
+            {
+                var events = contextdb.Agendas.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
+        [HttpPost]
+        public JsonResult SaveEvent(Agenda e)
+        {
+            var status = false;
+            using (AgendamentoContext contextdb = new AgendamentoContext())
+            {
+                if (e.Id > 0)
+                {
+                    //Update the event
+                    var v = contextdb.Agendas.Where(a => a.Id == e.Id).FirstOrDefault();
+                    if (v != null)
+                    {
+                        v.Title = e.Title;
+                        v.Observacao = e.Observacao;
+                        v.Start = e.Start;
+                        v.End = e.End;
+                        v.IsFullDay = e.IsFullDay;
+                        v.ThemeColor = e.ThemeColor;
+                    }
+                }
+                else
+                {
+                    contextdb.Agendas.Add(e);
+                }
+                contextdb.SaveChanges();
+                status = true;
+            }
+            return new JsonResult { Data = new { status = status } };
+        }
+
+        [HttpPost]
+        public JsonResult DeleteEvent(int id)
+        {
+            var status = false;
+            using (AgendamentoContext contextdb = new AgendamentoContext())
+            {
+                var v = contextdb.Agendas.Where(a => a.Id == id).FirstOrDefault();
+                if (v != null)
+                {
+                    contextdb.Agendas.Remove(v);
+                    contextdb.SaveChanges();
+                    status = true;
+                }
+            }
+            return new JsonResult { Data = new { status = status } };
         }
 
         protected override void Dispose(bool disposing)
