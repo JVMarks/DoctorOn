@@ -16,7 +16,7 @@ using System.Linq;
 
 namespace DoctorOn.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AgendaController : Controller
     {
         private AgendaDAO agendaDAO;

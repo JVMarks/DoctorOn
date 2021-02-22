@@ -1,0 +1,44 @@
+﻿@model  DoctorOn.Models.PacienteModel
+
+<link rel="stylesheet" href="~/Content/loginout.css" />
+
+<div class="bgline"></div>
+<div class="login">
+    <div class="login-wrap">
+        <div id="signinbox">
+            @using (Html.BeginForm("CreatePaciente", "Paciente", FormMethod.Post, new { @id = "signinform" }))
+            {
+            <h3 class="formlabel">Registrar-se como Paciente para agendar consultas</h3>
+                @Html.ValidationMessage("Paciente.Invalido", new { @class = "alert" })
+
+                <div class="center">
+                    @Html.TextBoxFor(u => u.Nome_completo, new { placeholder = "Digite seu Nome completo", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Nome_completo)
+
+                    @Html.TextBoxFor(u => u.Cpf, new { placeholder = "Digite seu CPF", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Cpf)
+
+                    @Html.EnumDropDownListFor(u => u.Sexo, htmlAttributes: new { placeholder = "Escolha seu sexo", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Sexo)
+
+                    @Html.TextBoxFor(u => u.Datadenacimento, new { placeholder = "MM/dd/yyyy", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Datadenacimento)
+
+                    @Html.TextBoxFor(u => u.Endereco, new { placeholder = "Digite seu endereço", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Endereco)
+
+                    @Html.TextBoxFor(u => u.Telefone, new { placeholder = "Digite seu numero de telefone", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Telefone)
+
+                    @Html.EnumDropDownListFor(u => u.Nome_do_convenio, new { placeholder = "Escolha seu convenio", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Nome_do_convenio)
+
+                    @Html.TextBoxFor(u => u.Matricula_do_convenio, new { placeholder = "Digite o numero do Convenio", @class = "inputfield" })
+                    @Html.ValidationMessageFor(u => u.Matricula_do_convenio)
+                </div>
+
+                <input id="loginsubmit" type="submit" value="Cadastrar" class="inputsubmit" />
+             }
+        </div>
+    </div>
+</div>

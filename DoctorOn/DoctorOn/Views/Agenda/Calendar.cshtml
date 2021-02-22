@@ -77,7 +77,7 @@
                                 <option value="">Aleatorio</option>
                                 <option value="red">Vermelho</option>
                                 <option value="blue">Azul</option>
-                                <option value="black">Petro</option>
+                                <option value="black">Preto</option>
                                 <option value="green">Verde</option>
                             </select>
                         </div>
@@ -126,7 +126,6 @@
                     }
                 })
             }
-
             function GenerateCalender(events) {
                 $('#calender').fullCalendar('destroy');
                 $('#calender').fullCalendar({
@@ -149,7 +148,7 @@
                         if (calEvent.end != null) {
                             $Observacao.append($('<p/>').html('<b>Termina:</b>' + calEvent.end.format("DD-MMM-YYYY HH:mm a")));
                         }
-                        $Observacao.append($('<p/>').html('<b>Observação:</b>' + calEvent.Observacao));
+                        $Observacao.append($('<p/>').html('<b>Observação:</b>' + calEvent.observacao));
                         $('#myModal #pDetails').empty().html($Observacao);
 
                         $('#myModal').modal();
@@ -159,7 +158,7 @@
                         selectedEvent = {
                             id: 0,
                             title: '',
-                            description: '',
+                            observacao: '',
                             start: start,
                             end: end,
                             allDay: false,
@@ -194,7 +193,7 @@
                     $.ajax({
                         type: "POST",
                         url: '/Agenda/DeleteEvent',
-                        data: { 'Id': selectedEvent.Id },
+                        data: { 'id': selectedEvent.id },
                         success: function (data) {
                             if (data.status) {
                                 //Refresh the calender
@@ -221,7 +220,7 @@
             });
             function openAddEditForm() {
                 if (selectedEvent != null) {
-                    $('#hdEventID').val(selectedEvent.Id);
+                    $('#hdEventID').val(selectedEvent.id);
                     $('#txtSubject').val(selectedEvent.title);
                     $('#txtStart').val(selectedEvent.start.format('DD/MM/YYYY HH:mm A'));
                     $('#chkIsFullDay').prop("checked", selectedEvent.allDay || false);
@@ -236,22 +235,22 @@
             $('#btnSave').click(function () {
                 //Validation/
                 if ($('#txtSubject').val().trim() == "") {
-                    alert('Subject required');
+                    alert('Titulo é obrigatorio');
                     return;
                 }
                 if ($('#txtStart').val().trim() == "") {
-                    alert('Start date required');
+                    alert('Horario inicial é obrigatorio');
                     return;
                 }
                 if ($('#chkIsFullDay').is(':checked') == false && $('#txtEnd').val().trim() == "") {
-                    alert('End date required');
+                    alert('Horario final é obrigatorio');
                     return;
                 }
                 else {
                     var startDate = moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate();
                     var endDate = moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate();
                     if (startDate > endDate) {
-                        alert('Invalid end date');
+                        alert('Informações de data estão incorretas');
                         return;
                     }
                 }
@@ -282,7 +281,7 @@
                         }
                     },
                     error: function () {
-                        alert('Failed');
+                        alert('Informações invalidas');
                     }
                 })
             }

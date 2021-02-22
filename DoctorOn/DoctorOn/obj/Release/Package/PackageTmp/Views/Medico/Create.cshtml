@@ -1,0 +1,36 @@
+﻿@model  DoctorOn.Models.MedicoModel
+
+
+<link rel="stylesheet" href="~/Content/loginout.css" />
+
+<div class="bgline"></div>
+<div class="login">
+    <div class="login-wrap">
+        <div id="signinbox">
+            @using (Html.BeginForm("CreateMedic", "Medico", FormMethod.Post, new { @id = "signinform" }))
+            {
+            <h3 class="formlabel">Registrar-se como médico para fazer parte da equipe</h3>
+                @Html.ValidationMessage("Medico.Invalido", new { @class = "alert" })
+
+        <div class="center">
+            @Html.TextBoxFor(u => u.Nome_completo, new { placeholder = "Digite seu Nome completo", @class = "inputfield" })
+            @Html.ValidationMessageFor(u => u.Nome_completo)
+
+            @Html.TextBoxFor(u => u.Endereco, new { placeholder = "Digite seu Endereço", @class = "inputfield" })
+            @Html.ValidationMessageFor(u => u.Endereco)
+
+            @Html.TextBoxFor(u => u.Telefone, new { placeholder = "Digite o numero do seu telefone", @class = "inputfield" })
+            @Html.ValidationMessageFor(u => u.Telefone)
+
+            @Html.TextBoxFor(u => u.CRM, new { placeholder = "Digite o numero do seu CRM", @class = "inputfield" })
+            @Html.ValidationMessageFor(u => u.CRM)
+
+            @Html.EnumDropDownListFor(u => u.Especialidade, new { placeholder = "Escolha sua especialidade", @class = "inputfield" })
+            @Html.ValidationMessageFor(u => u.Especialidade)
+        </div>
+
+                <input id="loginsubmit" type="submit" value="Cadastrar" class="inputsubmit" />
+             }
+        </div>
+    </div>
+</div>

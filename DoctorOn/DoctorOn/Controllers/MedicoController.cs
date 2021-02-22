@@ -28,7 +28,7 @@ namespace DoctorOn.Controllers
         }
 
         // GET: Medico
-        [Authorize]
+        //[Authorize]
         public ActionResult Index()
         {
             return View();
@@ -73,7 +73,7 @@ namespace DoctorOn.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult AuthenticationMedic(string Telefone, string CRM)
         {
             if (WebSecurity.Login(Telefone, CRM))
@@ -88,7 +88,7 @@ namespace DoctorOn.Controllers
         }
 
         //CRUD
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> Edit(int? Id)
         {
             if (Id == null)
@@ -105,7 +105,7 @@ namespace DoctorOn.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Nome_completo,Endereco,Telefone,CRM,Especialidade")] Medico medico)
         {
             if (ModelState.IsValid)

@@ -28,7 +28,7 @@ namespace DoctorOn.Controllers
         }
 
         // GET: Paciente
-        [Authorize]
+        //[Authorize]
         public ActionResult Index()
         {
             return View();
@@ -77,7 +77,7 @@ namespace DoctorOn.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult AuthenticationPaciente(string Cpf, string Matricula_do_convenio)
         {
             if (WebSecurity.Login(Cpf, Matricula_do_convenio))
@@ -92,7 +92,7 @@ namespace DoctorOn.Controllers
         }
 
         //CRUD
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> Edit(int? Id)
         {
             if (Id == null)
@@ -120,7 +120,7 @@ namespace DoctorOn.Controllers
             return View(paciente);
         }
 
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> Delete(int? Id)
         {
             if (Id == null)

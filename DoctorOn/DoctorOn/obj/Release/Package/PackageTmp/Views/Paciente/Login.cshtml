@@ -1,0 +1,23 @@
+﻿<link rel="stylesheet" href="~/Content/loginout.css" />
+
+<div class="bgline"></div>
+<div class="login">
+    <div class="login-wrap">
+        <div id="signinbox">
+            <form id="signinform" action="@Url.Action("AuthenticationPaciente")" method="post">
+                <h3 class="formlabel">Faça seu Login e veja as novidades</h3>
+                @Html.ValidationMessage("login.Invalido", new { @class = "alert" })
+
+                <div class="center">
+                    <input id="login" name="Cpf" type="text" class="inputfield" placeholder="Digite seu CPF" required />
+
+                    <input id="senha" name="Matricula_do_convenio" type="text" class="inputfield" placeholder="Digite seu numero de matricula do convenio" required />
+                </div>
+                <input type="submit" value="Entrar" id="loginsubmit" class="inputsubmit" />
+            </form>
+            <div class="spf">
+                @Html.ActionLink("Agenda", "Calendar", "Agenda", null, new { style = "text-decoration:none" })
+            </div>
+        </div>
+    </div>
+</div>
