@@ -35,5 +35,7 @@ namespace DoctorOn.Entidades
 
         [Required]
         public string Matricula_do_convenio { get; set; }
+
+        public int Usuario_Id { get; set; }
     }
 }

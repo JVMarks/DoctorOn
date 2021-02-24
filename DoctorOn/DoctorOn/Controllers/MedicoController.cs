@@ -15,7 +15,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace DoctorOn.Controllers
-{  
+{
     public class MedicoController : Controller
     {
         private MedicoDAO medicoDAO;
@@ -28,18 +28,8 @@ namespace DoctorOn.Controllers
         }
 
         // GET: Medico
-        //[Authorize]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        //CRIANDO A CONTA MEDICO
         public ActionResult Create()
-        {
-            return View();
-        }
-
-        public ActionResult Login()
         {
             return View();
         }
@@ -48,7 +38,8 @@ namespace DoctorOn.Controllers
         {
             if (ModelState.IsValid)
             {
-                try{
+                try
+                {
                     Medico medico = new Medico
                     {
                         Nome_completo = model.Nome_completo,
@@ -58,22 +49,30 @@ namespace DoctorOn.Controllers
                         Especialidade = model.Especialidade
                     };
                     medicoDAO.CreateMedic(medico);
-                    WebSecurity.CreateAccount(model.Telefone, model.CRM);
+                    //WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
                     return RedirectToAction("Calendar", "Agenda");
                 }
-                catch(MembershipPasswordException e)
+                catch (MembershipPasswordException e)
                 {
                     ModelState.AddModelError("Medico.Invalido", e.Message);
-                    return View("Index", model);
+                    return View("Create", "Medico");
                 }
             }
             else
             {
-                return View("Index", model);
+                return View("Calendar", "Agenda");
             }
         }
 
-        //[Authorize]
+
+
+
+        //REALIZANDO O LOGIN DA CONTA MEDICO
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public ActionResult AuthenticationMedic(string Telefone, string CRM)
         {
             if (WebSecurity.Login(Telefone, CRM))
@@ -83,12 +82,38 @@ namespace DoctorOn.Controllers
             else
             {
                 ModelState.AddModelError("CRM.Invalido", "CRM ou Telefone incorretos");
-                return View("Index");
+                return View("Login", "Medico");
             }
         }
 
-        //CRUD
-        //[Authorize]
+
+
+
+        //INDEX DO MEDICO POSSUI OS DETALTHES DO MEDICO JUNTO COM A AGENDA 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public async Task<ActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Medico medico = await contextdb.Medicos.FindAsync(id);
+            if (medico == null)
+            {
+                return HttpNotFound();
+            }
+            return View(medico);
+        }
+
+
+
+
+
+        //OPÇÃO DE ATUALIZAR E DELETAR INFORMAÇÕES DE PERFIL DO MEDICO
         public async Task<ActionResult> Edit(int? Id)
         {
             if (Id == null)
@@ -125,15 +150,6 @@ namespace DoctorOn.Controllers
             contextdb.Medicos.Remove(medico);
             await contextdb.SaveChangesAsync();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                contextdb.Dispose();
-            }
-            base.Dispose(disposing);
         }
 
     }

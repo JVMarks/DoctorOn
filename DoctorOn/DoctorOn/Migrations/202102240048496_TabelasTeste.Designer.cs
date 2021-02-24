@@ -13,7 +13,7 @@ namespace DoctorOn.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202102212349167_TabelasTeste"; }
+            get { return "202102240048496_TabelasTeste"; }
         }
         
         string IMigrationMetadata.Source

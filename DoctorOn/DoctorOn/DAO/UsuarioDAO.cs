@@ -22,5 +22,10 @@ namespace DoctorOn.DAO
             context.Usuarios.Add(usuario);
             context.SaveChanges();
         }       
+
+        public void BuscaPorId(string Email)
+        {
+            context.Usuarios.SqlQuery(Email).SingleOrDefaultAsync();
+        }
     }
 }

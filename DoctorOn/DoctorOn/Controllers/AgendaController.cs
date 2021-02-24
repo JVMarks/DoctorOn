@@ -65,6 +65,8 @@ namespace DoctorOn.Controllers
             return View();
         }
 
+
+        //VISUALIZANDO, CRIAÇA, SALVANDO, REMOVENDO O EVENTO DO CALENDARIO
         public ActionResult Calendar()
         {
             return View();
@@ -124,15 +126,6 @@ namespace DoctorOn.Controllers
                 }
             }
             return new JsonResult { Data = new { status = status } };
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                contextdb.Dispose();
-            }
-            base.Dispose(disposing);
         }
 
     }

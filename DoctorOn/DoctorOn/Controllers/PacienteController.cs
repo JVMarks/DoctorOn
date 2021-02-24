@@ -28,27 +28,17 @@ namespace DoctorOn.Controllers
         }
 
         // GET: Paciente
-        //[Authorize]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        //CRIANDO A CONTA DO PACIENTE
         public ActionResult Create()
-        {
-            return View();
-        }
-
-        public ActionResult Login()
         {
             return View();
         }
 
         public ActionResult CreatePaciente(PacienteModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                try
+                if (ModelState.IsValid)
                 {
                     Paciente paciente = new Paciente
                     {
@@ -59,25 +49,33 @@ namespace DoctorOn.Controllers
                         Endereco = model.Endereco,
                         Telefone = model.Telefone,
                         Nome_do_convenio = model.Nome_do_convenio,
-                        Matricula_do_convenio = model.Matricula_do_convenio
+                        Matricula_do_convenio = model.Matricula_do_convenio,
+                        Usuario_Id = model.Usuario_Id,
                     };
                     pacienteDAO.CreatePaciente(paciente);
-                    WebSecurity.CreateAccount(model.Cpf, model.Matricula_do_convenio);
+                    //WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
                     return RedirectToAction("Calendar", "Agenda");
                 }
-                catch (MembershipPasswordException e)
+                else
                 {
-                    ModelState.AddModelError("Paciente.Invalido", e.Message);
                     return View("Index", model);
                 }
             }
-            else
+            catch (MembershipPasswordException e)
             {
+                ModelState.AddModelError("Paciente.Invalido", e.Message);
                 return View("Index", model);
             }
         }
 
-        //[Authorize]
+
+
+        //REALIZANDO O LOGIN DA CONTA DO PACIENTE
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public ActionResult AuthenticationPaciente(string Cpf, string Matricula_do_convenio)
         {
             if (WebSecurity.Login(Cpf, Matricula_do_convenio))
@@ -87,12 +85,23 @@ namespace DoctorOn.Controllers
             else
             {
                 ModelState.AddModelError("CRM.Invalido", "CRM ou Telefone incorretos");
-                return View("Index");
+                return View("Login", "Paciente");
             }
         }
 
-        //CRUD
-        //[Authorize]
+
+
+        //INDEX DO PACIENTE DEVE MOSTRAR A LISTA DE MEDICOS DISPONIVEIS
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
+
+
+
+        //OPÇÃO DE ATUALIZAR E DELETAR INFORMAÇÕES DE PERFIL DO PACIENTE
         public async Task<ActionResult> Edit(int? Id)
         {
             if (Id == null)
@@ -120,21 +129,6 @@ namespace DoctorOn.Controllers
             return View(paciente);
         }
 
-        //[Authorize]
-        public async Task<ActionResult> Delete(int? Id)
-        {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Paciente paciente = await contextdb.Pacientes.FindAsync(Id);
-            if (paciente == null)
-            {
-                return HttpNotFound();
-            }
-            return View(paciente);
-        }
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int Id)
@@ -143,15 +137,6 @@ namespace DoctorOn.Controllers
             contextdb.Pacientes.Remove(paciente);
             await contextdb.SaveChangesAsync();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                contextdb.Dispose();
-            }
-            base.Dispose(disposing);
         }
 
     }

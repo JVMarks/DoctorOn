@@ -27,22 +27,5 @@ namespace DoctorOn.Models
         [Required]
         public Boolean IsFullDay { get; set; }
 
-        /*
-        [Required]
-        public virtual Paciente Paciente { get; set; }
-
-        [Required]
-        public virtual Medico Medico { get; set; }
-
-        [Required]
-        public virtual TipoDeAtendimento TipodeAtendimento { get; set; }
-
-        public int Id_paciente { get; set; }
-
-        public int Id_medico { get; set; }
-
-        public int Id_tipoDeAtendimento { get; set; }
-        */
-
     }
 }

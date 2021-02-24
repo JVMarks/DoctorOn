@@ -20,13 +20,6 @@ namespace DoctorOn
 
             //criação ds tabelas de login do usuario, paciente e medico simpleMembership
             WebSecurity.InitializeDatabaseConnection("AgendamentoContext", "Usuarios", "id", "Email", true);
-            /*
-            if (!WebMatrix.WebData.WebSecurity.Initialized)
-            {
-                WebSecurity.InitializeDatabaseConnection("AgendamentoContext", "Pacientes", "id", "CRM", true);
-                WebSecurity.InitializeDatabaseConnection("AgendamentoContext", "Medicos", "id", "Matricula_do_convenio", true);
-            }
-            */
 
         }
     }

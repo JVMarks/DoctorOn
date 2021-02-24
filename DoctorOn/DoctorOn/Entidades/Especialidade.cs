@@ -7,11 +7,10 @@ namespace DoctorOn.Entidades
 {
     public enum Especialidade
     {
-        Cirurgiao,
-        Ortopedista,
-        Anestesista,
+        Cardiologista,
         Dermatologista,
-        Hematologista,
-        Mastologista
+        Ginecologista,
+        Ortopedista,
+        Anestesiologista,
     }
 }

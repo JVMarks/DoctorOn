@@ -37,6 +37,9 @@ namespace DoctorOn.Models
         [Required]
         public string Matricula_do_convenio { get; set; }
 
+        [Required]
+        public int Usuario_Id { get; set; }
+
 
     }
 }

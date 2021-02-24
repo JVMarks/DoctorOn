@@ -18,8 +18,12 @@ namespace DoctorOn.Migrations
                         End = c.DateTime(nullable: false),
                         ThemeColor = c.String(),
                         IsFullDay = c.Boolean(nullable: false),
+                        Id_medico = c.Int(nullable: false),
+                        Medico_Id = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Medicos", t => t.Medico_Id, cascadeDelete: true)
+                .Index(t => t.Medico_Id);
             
             CreateTable(
                 "dbo.Medicos",
@@ -28,15 +32,12 @@ namespace DoctorOn.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Nome_completo = c.String(nullable: false),
                         Endereco = c.String(nullable: false),
-                        Telefone = c.String(nullable: false, maxLength: 17),
+                        Telefone = c.String(nullable: false, maxLength: 18),
                         CRM = c.String(nullable: false, maxLength: 10),
                         Especialidade = c.Int(nullable: false),
-                        Id_Agenda = c.Int(nullable: false),
-                        Agenda_Id = c.Int(),
+                        Usuario_Id = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Agenda", t => t.Agenda_Id)
-                .Index(t => t.Agenda_Id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Pacientes",
@@ -51,22 +52,9 @@ namespace DoctorOn.Migrations
                         Telefone = c.String(nullable: false, maxLength: 17),
                         Nome_do_convenio = c.Int(nullable: false),
                         Matricula_do_convenio = c.String(nullable: false),
+                        Usuario_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.TipoDeAtendimentoes",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Descricao = c.String(),
-                        Valor = c.Single(nullable: false),
-                        Id_agenda = c.Int(nullable: false),
-                        Agenda_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Agenda", t => t.Agenda_Id)
-                .Index(t => t.Agenda_Id);
             
             CreateTable(
                 "dbo.Usuarios",
@@ -81,12 +69,9 @@ namespace DoctorOn.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.TipoDeAtendimentoes", "Agenda_Id", "dbo.Agenda");
-            DropForeignKey("dbo.Medicos", "Agenda_Id", "dbo.Agenda");
-            DropIndex("dbo.TipoDeAtendimentoes", new[] { "Agenda_Id" });
-            DropIndex("dbo.Medicos", new[] { "Agenda_Id" });
+            DropForeignKey("dbo.Agenda", "Medico_Id", "dbo.Medicos");
+            DropIndex("dbo.Agenda", new[] { "Medico_Id" });
             DropTable("dbo.Usuarios");
-            DropTable("dbo.TipoDeAtendimentoes");
             DropTable("dbo.Pacientes");
             DropTable("dbo.Medicos");
             DropTable("dbo.Agenda");

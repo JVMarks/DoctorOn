@@ -17,7 +17,7 @@ namespace DoctorOn.Entidades
         public string Endereco { get; set; }
 
         [Required]
-        [StringLength(17)]
+        [StringLength(18)]
         public string Telefone { get; set; }
 
         [Required]
@@ -27,9 +27,7 @@ namespace DoctorOn.Entidades
         [Required]
         public Especialidade Especialidade { get; set; }
 
-        //CRIAÇÃO DA FK
-        public int Id_Agenda { get; set; }
+        public int Usuario_Id { get; set; }
 
-        public virtual Agenda Agenda { get; set; }
     }
 }
