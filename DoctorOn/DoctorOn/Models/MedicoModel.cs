@@ -27,5 +27,7 @@ namespace DoctorOn.Models
         [Required]
         public Especialidade Especialidade { get; set; }
 
+        public int Usuario_Id { get; set; }
+
     }
 }

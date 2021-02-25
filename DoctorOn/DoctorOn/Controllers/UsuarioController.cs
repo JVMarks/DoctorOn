@@ -21,7 +21,8 @@ namespace DoctorOn.Controllers
             this.usuarioDAO = usuarioDAO;
         }
 
-        public ActionResult Index()
+        //REALIZAR O CADASTRO DE USUARIO
+        public ActionResult Create()
         {
             return View();
         }
@@ -33,27 +34,49 @@ namespace DoctorOn.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
-                    return RedirectToAction("Index", "Agenda");
+                    return RedirectToAction("Login", "Usuario");
                 }
                 catch (MembershipPasswordException e)
                 {
                     ModelState.AddModelError("usuario.Invalido", e.Message);
-                    return View("Index", model);
+                    return View("Create", model);
                 }
             }
             else
             {
-                return View("Index", model);
+                return View("Create", model);
             }
 
         }
-        
-        /*
-        public ActionResult Index()
+
+
+
+
+        //REALIZAR O LOGIN DO USUARIO
+        public ActionResult Login()
         {
-            IList<Medico> medicos = MedicoDAO.Medic_list();
-            return View(medicos);
-        }*/
+            return View();
+        }
+
+        public ActionResult Authentication(String Email, String Senha)
+        {
+            if (WebSecurity.Login(Email, Senha))
+            {
+                return RedirectToAction("Index", "Agenda");
+            }
+            else
+            {
+                ModelState.AddModelError("email.Invalido", "Login ou Senha incorretos");
+                return View("Login", "Usuario");
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            WebSecurity.Logout();
+            return RedirectToAction("Index", "Home");
+        }
+
 
     }
 }

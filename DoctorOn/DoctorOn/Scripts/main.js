@@ -65,16 +65,3 @@ $(function () {
 
 	topButton.addEventListener('click', function () { $('html, body').animate({ scrollTop: 0 }, 500) });
 });
-
-//login & logout 
-/*
-function SubmitLoginForm() {
-	document.getElementById("signinform").submit()
-}
-document.getElementById('loginsubmit').onclick = function () {
-	setTimeout(SubmitLoginForm, 3000);
-	$("#loginsubmit").addClass("submitfunc");
-}*/
-
-
-//Calendario

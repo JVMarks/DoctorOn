@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace DoctorOn.Controllers
 {
+    //[Authorize]
     public class PacienteController : Controller
     {
         private PacienteDAO pacienteDAO;
@@ -54,17 +55,17 @@ namespace DoctorOn.Controllers
                     };
                     pacienteDAO.CreatePaciente(paciente);
                     //WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
-                    return RedirectToAction("Calendar", "Agenda");
+                    return RedirectToAction("List", "Medico");
                 }
                 else
                 {
-                    return View("Index", model);
+                    return View("Create", "Medico");
                 }
             }
             catch (MembershipPasswordException e)
             {
                 ModelState.AddModelError("Paciente.Invalido", e.Message);
-                return View("Index", model);
+                return View("Create", "Medico");
             }
         }
 
@@ -80,7 +81,7 @@ namespace DoctorOn.Controllers
         {
             if (WebSecurity.Login(Cpf, Matricula_do_convenio))
             {
-                return RedirectToAction("Calendar", "Agenda");
+                return RedirectToAction("Index","Paciente");
             }
             else
             {
@@ -91,7 +92,7 @@ namespace DoctorOn.Controllers
 
 
 
-        //INDEX DO PACIENTE DEVE MOSTRAR A LISTA DE MEDICOS DISPONIVEIS
+        //INDEX DO PACIENTE DEVE MOSTRAR O PERFIL DO PACIENTE
         public ActionResult Index()
         {
             return View();

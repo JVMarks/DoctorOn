@@ -8,7 +8,6 @@ namespace DoctorOn.Entidades
     public enum Sexo
     {
         Masculino, 
-        Feminino, 
-        Outro
+        Feminino
     }
 }

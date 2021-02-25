@@ -9,6 +9,7 @@ using System.Web;
 //install-package EntityFramework
 //Enable-Migrations
 //add-migration TabelasTeste
+//Remove-Migration TabelasTeste 
 //update-Database
 //Install-package Ninject.MVC3
 //simple membership

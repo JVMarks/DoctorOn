@@ -25,9 +25,11 @@ namespace DoctorOn.Entidades
         [Required]
         public Boolean IsFullDay { get; set; }
 
-       public int Id_medico { get; set; }
+        //PARA DEIXAR A ENTIDADE AGENDA DEPENDENTE DA ENTIDADE MEDICO EU TENHO QUE REFERENCIAR DENTRO DA TABELA AGENDA
+        //E CRIAR UMA FK 
+        public int Id_medico { get; set; }
 
-       public virtual Medico Medico { get; set; }
+        public virtual Medico Medico { get; set; }
 
         /*
        //chave FK

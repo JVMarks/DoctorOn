@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace DoctorOn.Controllers
 {
+    //[Authorize]
     public class MedicoController : Controller
     {
         private MedicoDAO medicoDAO;
@@ -46,7 +47,8 @@ namespace DoctorOn.Controllers
                         Endereco = model.Endereco,
                         Telefone = model.Telefone,
                         CRM = model.CRM,
-                        Especialidade = model.Especialidade
+                        Especialidade = model.Especialidade,
+                        Usuario_Id = model.Usuario_Id,
                     };
                     medicoDAO.CreateMedic(medico);
                     //WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
@@ -60,7 +62,7 @@ namespace DoctorOn.Controllers
             }
             else
             {
-                return View("Calendar", "Agenda");
+                return View("Create", "Medico");
             }
         }
 
@@ -77,7 +79,7 @@ namespace DoctorOn.Controllers
         {
             if (WebSecurity.Login(Telefone, CRM))
             {
-                return RedirectToAction("Calendar", "Agenda");
+                return RedirectToAction("Index", "Medico");
             }
             else
             {
@@ -86,10 +88,16 @@ namespace DoctorOn.Controllers
             }
         }
 
+        //LISTA DE MEDICOS
+        public ActionResult List()
+        { 
+            IList<Medico> medicos = medicoDAO.Medic_list();
+            return View(medicos);
+        }
 
 
 
-        //INDEX DO MEDICO POSSUI OS DETALTHES DO MEDICO JUNTO COM A AGENDA 
+        //INDEX DO MEDICO POSSUI OS DETALTHES DO MEDICO JUNTO COM SUA AGENDA 
         public ActionResult Index()
         {
             return View();
@@ -130,7 +138,6 @@ namespace DoctorOn.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Nome_completo,Endereco,Telefone,CRM,Especialidade")] Medico medico)
         {
             if (ModelState.IsValid)
