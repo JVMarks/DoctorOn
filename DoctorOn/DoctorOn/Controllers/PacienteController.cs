@@ -98,6 +98,14 @@ namespace DoctorOn.Controllers
             return View();
         }
 
+        /*
+        public ActionResult Index(BuscarPacienteModel model)
+        {
+            model.Pacientes = pacienteDAO.FindByUser(model.Id);
+            return View(model);
+        }
+         */
+
 
 
 

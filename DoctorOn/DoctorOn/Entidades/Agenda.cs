@@ -27,15 +27,8 @@ namespace DoctorOn.Entidades
 
         //PARA DEIXAR A ENTIDADE AGENDA DEPENDENTE DA ENTIDADE MEDICO EU TENHO QUE REFERENCIAR DENTRO DA TABELA AGENDA
         //E CRIAR UMA FK 
-        public int Id_medico { get; set; }
+        public int MedicoId { get; set; }
 
         public virtual Medico Medico { get; set; }
-
-        /*
-       //chave FK
-       public int Id_paciente { get; set; }
-
-       public virtual Paciente Paciente { get; set; }
-       */
     }
 }

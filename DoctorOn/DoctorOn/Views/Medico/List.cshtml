@@ -1,4 +1,4 @@
-﻿@model IList<DoctorOn.Entidades.Medico>
+﻿@model IEnumerable<DoctorOn.Entidades.Medico>
 <!-- model IList<DoctorOn.Models.MedicoModel> -->
 
 <link rel="stylesheet" href="~/Content/main.css" />
@@ -49,11 +49,13 @@
             </div>
             <div class="card-flap flap1">
                 <div class="card-description">
-                    Endereço do medico selecionado: @Medico.Endereco
+                    Endereço da Clínica: @Medico.Endereco
                 </div>
                 <div class="card-flap flap2">
                     <div class="card-actions">
+                        <a>
                         @Html.ActionLink("Ver Perfil", "Index", "Medico", null, new { style = "text-decoration:none", @class = "btnn" })
+                        </a>
                     </div>
                 </div>
             </div>

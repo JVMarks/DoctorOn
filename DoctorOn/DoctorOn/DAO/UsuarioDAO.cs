@@ -21,11 +21,17 @@ namespace DoctorOn.DAO
         {
             context.Usuarios.Add(usuario);
             context.SaveChanges();
-        }       
+        }
+
+        public IList<Usuario> FindByUser(int? Id)
+        {
+            return context.Usuarios.Where(m => m.Id == Id).ToList();
+        }
 
         public void BuscaPorId(string Email)
         {
             context.Usuarios.SqlQuery(Email).SingleOrDefaultAsync();
         }
+
     }
 }

@@ -9,8 +9,8 @@ using System.Web;
 //install-package EntityFramework
 //Enable-Migrations
 //add-migration TabelasTeste
-//Remove-Migration TabelasTeste 
 //update-Database
+//Remove-Migration TabelasTeste 
 //Install-package Ninject.MVC3
 //simple membership
 //install-Package Microsoft.AspNet.WebPages.WebData 
@@ -30,7 +30,7 @@ namespace DoctorOn.DAO
        protected override void OnModelCreating(DbModelBuilder modelBuilder)
        {
             modelBuilder.Entity<Agenda>().HasRequired(p => p.Medico);
-       }
+        }
 
     }
 }

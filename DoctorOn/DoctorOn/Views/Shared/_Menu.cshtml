@@ -19,11 +19,14 @@
                 <li class="">
                     @Html.ActionLink("Sobre Nós", "Index", "Home", null, new { style = "text-decoration:none", @class = "page-scroll" })
                 </li>
+                <li class="">
+                    @Html.ActionLink("Lista de Médicos", "List", "Medico", null, new { style = "text-decoration:none", @class = "page-scroll" })
+                </li>
                 <!--if(WebSecurity.IsAuthenticated)-->
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="">
-                        @Html.ActionLink("Agendar", "Index", "Agenda", null, new { style = "text-decoration:none", @class = "page-scroll" })
+                        @Html.ActionLink("Médico & Paciente", "Index", "Usuario", null, new { style = "text-decoration:none", @class = "page-scroll" })
                     </li>
                     <li class="">
                         @Html.ActionLink("Logout", "Logout", "Usuario", null, new { style = "text-decoration:none", @class = "page-scroll" })

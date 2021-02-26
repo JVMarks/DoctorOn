@@ -20,12 +20,14 @@ namespace DoctorOn.Controllers
     public class MedicoController : Controller
     {
         private MedicoDAO medicoDAO;
+        private AgendaDAO agendaDAO;
 
         private AgendamentoContext contextdb = new AgendamentoContext();
 
-        public MedicoController(MedicoDAO medicoDAO)
+        public MedicoController(MedicoDAO medicoDAO, AgendaDAO agendaDAO)
         {
             this.medicoDAO = medicoDAO;
+            this.agendaDAO = agendaDAO;
         }
 
         // GET: Medico
@@ -52,7 +54,7 @@ namespace DoctorOn.Controllers
                     };
                     medicoDAO.CreateMedic(medico);
                     //WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
-                    return RedirectToAction("Calendar", "Agenda");
+                    return RedirectToAction("Index", "Medico");
                 }
                 catch (MembershipPasswordException e)
                 {
@@ -95,6 +97,14 @@ namespace DoctorOn.Controllers
             return View(medicos);
         }
 
+        //BUSCAR POR MEDICO
+        public ActionResult FindByMedic(BuscarMedicoModel model)
+        {
+            //model.Medicos = medicoDAO.Medic_list();
+            model.Agendas = agendaDAO.Schedule_list();
+            model.Medicos = medicoDAO.FindBy(model.Especialidade, model.Usuario_Id);
+            return View(model);
+        }
 
 
         //INDEX DO MEDICO POSSUI OS DETALTHES DO MEDICO JUNTO COM SUA AGENDA 

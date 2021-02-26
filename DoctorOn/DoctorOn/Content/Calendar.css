@@ -6,3 +6,61 @@
 .padding {
     padding: 5rem;
 }
+
+.section_container {
+    width: 100%;
+    height: 100%;
+    margin: 50px auto;
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.section_img::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #4091EC;
+    opacity: 0.2;
+}
+
+.section_img {
+    width: 38%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../assets/img/persona2.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.section_perfil {
+    width: 62%;
+    padding: 30px 40px;
+}
+
+.section_direction{
+    display: flex;
+    flex-direction: column;
+}
+
+.section_direction h1{
+    font-size: 25px;
+    font-weight: 600;
+    color: #303030;
+    margin-bottom: 30px;
+}
+
+.section_direction h2, h3{
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: #303030;
+    margin-bottom: 15px;
+}

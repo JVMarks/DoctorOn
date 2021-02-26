@@ -21,18 +21,10 @@ namespace DoctorOn.DAO
             context.SaveChanges();
         }
 
-        /*
-        public void Edit(Paciente paciente)
+        public IList<Paciente> FindByUser(int? Id)
         {
-            context.Pacientes.Find(paciente);
-            context.SaveChanges();
+            return context.Pacientes.Where(m => m.Id == Id).ToList();
         }
-
-        public void Delete(Paciente paciente)
-        {
-            context.Pacientes.Remove(paciente);
-            context.SaveChanges();
-        }*/
 
     }
 }

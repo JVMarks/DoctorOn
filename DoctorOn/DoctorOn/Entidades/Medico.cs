@@ -28,6 +28,5 @@ namespace DoctorOn.Entidades
         public Especialidade Especialidade { get; set; }
 
         public int Usuario_Id { get; set; }
-
     }
 }

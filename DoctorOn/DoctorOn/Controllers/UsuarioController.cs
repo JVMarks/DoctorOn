@@ -21,6 +21,11 @@ namespace DoctorOn.Controllers
             this.usuarioDAO = usuarioDAO;
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         //REALIZAR O CADASTRO DE USUARIO
         public ActionResult Create()
         {
@@ -62,7 +67,7 @@ namespace DoctorOn.Controllers
         {
             if (WebSecurity.Login(Email, Senha))
             {
-                return RedirectToAction("Index", "Agenda");
+                return RedirectToAction("Index", "Usuario");
             }
             else
             {
