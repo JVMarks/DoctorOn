@@ -166,9 +166,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102262312064_TabelasTeste.cs" />
-    <Compile Include="Migrations\202102262312064_TabelasTeste.Designer.cs">
-      <DependentUpon>202102262312064_TabelasTeste.cs</DependentUpon>
+    <Compile Include="Migrations\202102271931119_TabelasTeste.cs" />
+    <Compile Include="Migrations\202102271931119_TabelasTeste.Designer.cs">
+      <DependentUpon>202102271931119_TabelasTeste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BuscarPacienteModel.cs" />
@@ -262,7 +262,6 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Paciente\Edit.cshtml" />
-    <Content Include="Views\Paciente\Index.cshtml" />
     <Content Include="Views\Paciente\Create.cshtml" />
     <Content Include="Views\Paciente\Login.cshtml" />
     <Content Include="Views\Medico\Index.cshtml" />
@@ -279,6 +278,8 @@
     <Content Include="Views\Medicos\Details.cshtml" />
     <Content Include="Views\Medicos\Edit.cshtml" />
     <Content Include="Views\Medicos\Index.cshtml" />
+    <Content Include="Views\Paciente\Delete.cshtml" />
+    <Content Include="Views\Medico\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -294,8 +295,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102262312064_TabelasTeste.resx">
-      <DependentUpon>202102262312064_TabelasTeste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202102271931119_TabelasTeste.resx">
+      <DependentUpon>202102271931119_TabelasTeste.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

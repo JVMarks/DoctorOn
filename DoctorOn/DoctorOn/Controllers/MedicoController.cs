@@ -54,7 +54,7 @@ namespace DoctorOn.Controllers
                     };
                     medicoDAO.CreateMedic(medico);
                     //WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
-                    return RedirectToAction("Details", "Medico", new { id = medico.Id });
+                    return RedirectToAction("Index", "Medico", new { id = medico.Id });
                 }
                 catch (MembershipPasswordException e)
                 {
@@ -81,12 +81,13 @@ namespace DoctorOn.Controllers
         {
             if (WebSecurity.Login(Telefone, CRM))
             {
-                return RedirectToAction("Details", "Medico");
+                return RedirectToAction("List", "Medico");
             }
             else
             {
                 ModelState.AddModelError("CRM.Invalido", "CRM ou Telefone incorretos");
-                return RedirectToAction("Login");
+                //return View("Login");
+                return RedirectToAction("List", "Medico");
             }
         }
 
@@ -108,9 +109,18 @@ namespace DoctorOn.Controllers
 
 
         //INDEX DO MEDICO POSSUI OS DETALTHES DO MEDICO JUNTO COM SUA AGENDA 
-        public ActionResult Index()
+        public async Task<ActionResult> Index(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Medico medico = await contextdb.Medicos.FindAsync(id);
+            if (medico == null)
+            {
+                return HttpNotFound();
+            }
+            return View(medico);
         }
 
         public async Task<ActionResult> Details(int? id)
@@ -154,7 +164,21 @@ namespace DoctorOn.Controllers
             {
                 contextdb.Entry(medico).State = EntityState.Modified;
                 await contextdb.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
+            }
+            return View(medico);
+        }
+
+        public async Task<ActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Medico medico = await contextdb.Medicos.FindAsync(id);
+            if (medico == null)
+            {
+                return HttpNotFound();
             }
             return View(medico);
         }
@@ -166,7 +190,7 @@ namespace DoctorOn.Controllers
             Medico medico = await contextdb.Medicos.FindAsync(Id);
             contextdb.Medicos.Remove(medico);
             await contextdb.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
     }

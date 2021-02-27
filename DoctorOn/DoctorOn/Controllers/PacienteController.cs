@@ -86,17 +86,14 @@ namespace DoctorOn.Controllers
             else
             {
                 ModelState.AddModelError("CRM.Invalido", "CRM ou Telefone incorretos");
-                return RedirectToAction("Login");
+                //return View("Login");
+                return RedirectToAction("List", "Medico");
             }
         }
 
 
 
         //INDEX DO PACIENTE DEVE MOSTRAR O PERFIL DO PACIENTE
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public async Task<ActionResult> Details(int? id)
         {
@@ -138,7 +135,21 @@ namespace DoctorOn.Controllers
             {
                 contextdb.Entry(paciente).State = EntityState.Modified;
                 await contextdb.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
+            }
+            return View(paciente);
+        }
+
+        public async Task<ActionResult> Delete(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Paciente paciente = await contextdb.Pacientes.FindAsync(Id);
+            if (paciente == null)
+            {
+                return HttpNotFound();
             }
             return View(paciente);
         }
@@ -150,7 +161,7 @@ namespace DoctorOn.Controllers
             Paciente paciente = await contextdb.Pacientes.FindAsync(Id);
             contextdb.Pacientes.Remove(paciente);
             await contextdb.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
     }

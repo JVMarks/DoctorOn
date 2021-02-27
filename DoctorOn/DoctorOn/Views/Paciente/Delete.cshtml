@@ -1,0 +1,52 @@
+﻿@model DoctorOn.Entidades.Paciente
+
+<link href="~/Content/Calendar.css" rel="stylesheet" />
+
+<div class="top">
+    <h1>Deletar Perfil</h1>
+    <div class="form">
+
+    @Html.LabelFor(model => model.Nome_completo, "Nome:", new { @class = "formlabel" })
+    @Html.DisplayFor(model => model.Nome_completo, new { @class = "formlabel" })
+
+
+    @Html.LabelFor(model => model.Cpf, "Alterar CPF:", new { @class = "formlabel" })
+    @Html.DisplayFor(model => model.Cpf, new { @class = "formlabel" })
+
+    @Html.LabelFor(model => model.Nome_do_convenio, "Alterar Nome do convenio:", new { @class = "formlabel" })
+    @Html.DisplayFor(model => model.Nome_do_convenio, new { @class = "formlabel" })
+
+
+    @Html.LabelFor(model => model.Matricula_do_convenio, "Numero do convenio:", new { @class = "formlabel" })
+    @Html.DisplayFor(model => model.Matricula_do_convenio, new { @class = "formlabel" })
+
+
+    @Html.LabelFor(model => model.Sexo, "Sexo:", new { @class = "formlabel" })
+    @Html.DisplayFor(model => model.Sexo, new { @class = "formlabel" })
+
+
+    @Html.LabelFor(model => model.Datadenacimento, "Data de nacimento:", new { @class = "formlabel" })
+    @Html.DisplayFor(model => model.Datadenacimento, new { @class = "formlabel" })
+
+
+    @Html.LabelFor(model => model.Endereco, "Endereço:", new { @class = "formlabel" })
+    @Html.DisplayFor(model => model.Endereco, new { @class = "formlabel" })
+
+
+    @Html.LabelFor(model => model.Telefone, "Telefone:", new { @class = "formlabel" })
+    @Html.DisplayFor(model => model.Telefone, new { @class = "formlabel" })
+
+    </div>
+
+
+    @using (Html.BeginForm(new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="">
+            <input type="submit" value="Deletar conta" class="buttonlink slidee" /> |
+            @Html.ActionLink("Voltar para lista", "List", "Medico")
+        </div>
+    }
+
+</div>

@@ -1,0 +1,41 @@
+﻿@model DoctorOn.Entidades.Medico
+
+<link href="~/Content/Calendar.css" rel="stylesheet" />
+
+<div class="top">
+    <h1>Deletar Perfil</h1>
+    <div class="form">
+
+        @Html.LabelFor(model => model.Nome_completo, "Nome:", new { @class = "formlabel" })
+        @Html.DisplayFor(model => model.Nome_completo, new { @class = "formlabel" })
+
+
+        @Html.LabelFor(model => model.Especialidade, "Especialidade:", new { @class = "formlabel" })
+        @Html.DisplayFor(model => model.Especialidade, new { @class = "formlabel" })
+
+
+        @Html.LabelFor(model => model.CRM, "CRM:", new { @class = "formlabel" })
+        @Html.DisplayFor(model => model.CRM, new { @class = "formlabel" })
+
+
+        @Html.LabelFor(model => model.Endereco, "Endereço:", new { @class = "formlabel" })
+        @Html.DisplayFor(model => model.Endereco, new { @class = "formlabel" })
+
+
+        @Html.LabelFor(model => model.Telefone, "Telefone:", new { @class = "formlabel" })
+        @Html.DisplayFor(model => model.Telefone, new { @class = "formlabel" })
+
+    </div>
+
+
+    @using (Html.BeginForm(new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="">
+            <input type="submit" value="Deletar conta" class="buttonlink slidee" /> |
+            @Html.ActionLink("Voltar para lista", "List", "Medico")
+        </div>
+    }
+
+</div>

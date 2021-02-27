@@ -68,17 +68,11 @@
         @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
 
         <input type="submit" value="Salvar" class="buttonlink uup" />
-    }
 
+    @Html.ActionLink("Deletar conta", "Delete", "Paciente", new { id = Model.Id }, new { style = "text-decoration:none", @class = "buttonlink slidee" }) 
 
-    @using (Html.BeginForm(new { @class = "form" }))
-    {
-        @Html.AntiForgeryToken()
+    @Html.ActionLink("Voltar para lista", "List", "Medico", new { style = "text-decoration:none" })
 
-        <div class="">
-            <input type="submit" value="Deletar conta" class="buttonlink slidee" /> |
-            @Html.ActionLink("Voltar para lista", "List", "Medico")
-        </div>
     }
 
 </div>

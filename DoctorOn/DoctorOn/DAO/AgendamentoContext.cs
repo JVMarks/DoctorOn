@@ -29,7 +29,7 @@ namespace DoctorOn.DAO
 
        protected override void OnModelCreating(DbModelBuilder modelBuilder)
        {
-            modelBuilder.Entity<Agenda>().HasRequired(p => p.Medico);
+            //modelBuilder.Entity<Agenda>().HasRequired(p => p.Medico);
 
        }
 
