@@ -148,6 +148,7 @@
     <Compile Include="Controllers\AgendaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
+    <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\AgendaDAO.cs" />
@@ -165,9 +166,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102252338448_TabelasTeste.cs" />
-    <Compile Include="Migrations\202102252338448_TabelasTeste.Designer.cs">
-      <DependentUpon>202102252338448_TabelasTeste.cs</DependentUpon>
+    <Compile Include="Migrations\202102262312064_TabelasTeste.cs" />
+    <Compile Include="Migrations\202102262312064_TabelasTeste.Designer.cs">
+      <DependentUpon>202102262312064_TabelasTeste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BuscarPacienteModel.cs" />
@@ -271,6 +272,13 @@
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Medico\List.cshtml" />
+    <Content Include="Views\Paciente\Details.cshtml" />
+    <Content Include="Views\Medico\Details.cshtml" />
+    <Content Include="Views\Medicos\Create.cshtml" />
+    <Content Include="Views\Medicos\Delete.cshtml" />
+    <Content Include="Views\Medicos\Details.cshtml" />
+    <Content Include="Views\Medicos\Edit.cshtml" />
+    <Content Include="Views\Medicos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -286,8 +294,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202102252338448_TabelasTeste.resx">
-      <DependentUpon>202102252338448_TabelasTeste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202102262312064_TabelasTeste.resx">
+      <DependentUpon>202102262312064_TabelasTeste.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

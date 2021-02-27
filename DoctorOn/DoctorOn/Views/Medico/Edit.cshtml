@@ -1,82 +1,52 @@
 ﻿@model DoctorOn.Entidades.Medico
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<link href="~/Content/Calendar.css" rel="stylesheet" />
 
-    <div class="form-horizontal">
-        <h4>Medico</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+<div class="top">
+    <h1>Editor de Perfil</h1>
+        @using (Html.BeginForm(new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome_completo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+
+                @Html.LabelFor(model => model.Nome_completo, "Alterar Nome:", new { @class = "formlabel" })
                 @Html.EditorFor(model => model.Nome_completo, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nome_completo, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CRM, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                @Html.LabelFor(model => model.CRM, "Alterar CRM:", new { @class = "formlabel" })
                 @Html.EditorFor(model => model.CRM, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CRM, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Especialidade, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+
+                @Html.LabelFor(model => model.Especialidade, "Alterar Especialidade:", new { @class = "formlabel" })
                 @Html.EnumDropDownListFor(model => model.Especialidade, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Especialidade, "", new { @class = "text-danger" })
+
+
+                @Html.LabelFor(model => model.Endereco, "Alterar Endereço:", new { @class = "formlabel" })
+                @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+
+
+                @Html.LabelFor(model => model.Telefone, "Alterar Telefone:", new { @class = "formlabel" })
+                @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+
+
+                <input type="submit" value="Salvar" class="buttonlink uup" />
+        }
+
+        @using (Html.BeginForm(new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="">
+                <input type="submit" value="Deletar conta" class="buttonlink slidee" /> | @Html.ActionLink("Voltar para perfil", "Index", "Medico")  
             </div>
-        </div>
+        }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Id_Agenda, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Id_Agenda, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Id_Agenda, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-actions no-color">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
-

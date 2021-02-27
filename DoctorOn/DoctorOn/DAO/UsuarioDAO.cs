@@ -23,9 +23,9 @@ namespace DoctorOn.DAO
             context.SaveChanges();
         }
 
-        public IList<Usuario> FindByUser(int? Id)
+        public IList<Usuario> FindByUser(string Email)
         {
-            return context.Usuarios.Where(m => m.Id == Id).ToList();
+            return context.Usuarios.Where(m => m.Email == Email).ToList();
         }
 
         public void BuscaPorId(string Email)

@@ -9,6 +9,7 @@ namespace DoctorOn.Models
     public class BuscarPacienteModel
     {
         public int? Id { get; set; }
+
         public IList<Paciente> Pacientes { get; set; }
 
     }

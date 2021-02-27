@@ -17,7 +17,7 @@ namespace DoctorOn.Models
         public string Endereco { get; set; }
 
         [Required]
-        [StringLength(18)]
+        [StringLength(23)]
         public string Telefone { get; set; }
 
         [Required]
@@ -27,6 +27,7 @@ namespace DoctorOn.Models
         [Required]
         public Especialidade Especialidade { get; set; }
 
+        [Required]
         public int Usuario_Id { get; set; }
 
     }

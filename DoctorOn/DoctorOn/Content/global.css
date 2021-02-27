@@ -49,6 +49,10 @@ p {
     --color-border: #bdc4c9;
 }
 
+.boldtext {
+    font-weight: bold;
+}
+
 /*scrollbar*/
 ::-webkit-scrollbar {
     width: 7px;
@@ -398,4 +402,45 @@ button.accept-policy {
         display: inline-block;
         margin-bottom: 1.5rem;
     }
+}
+
+/*BUTTON*/
+
+.buttonlink {
+    color: var(--color);
+    transition: 0.25s;
+}
+
+.buttonlink:hover, .buttonlink:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+.buttonlink {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 1em;
+}
+
+.uup {
+    --color: #e4cb58;
+    --hover: #94e458;
+}
+
+.slidee {
+    --color: #ff1811;
+    --hover: #f00051;
+}
+
+.uup:hover,
+.uup:focus {
+    box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+
+.slidee:hover,
+.slidee:focus {
+    box-shadow: inset 8.0em 0 0 0 var(--hover);
 }

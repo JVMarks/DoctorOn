@@ -54,17 +54,17 @@ namespace DoctorOn.Controllers
                     };
                     medicoDAO.CreateMedic(medico);
                     //WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
-                    return RedirectToAction("Index", "Medico");
+                    return RedirectToAction("Details", "Medico", new { id = medico.Id });
                 }
                 catch (MembershipPasswordException e)
                 {
                     ModelState.AddModelError("Medico.Invalido", e.Message);
-                    return View("Create", "Medico");
+                    return View("Create", model);
                 }
             }
             else
             {
-                return View("Create", "Medico");
+                return View("Create", model);
             }
         }
 
@@ -81,12 +81,12 @@ namespace DoctorOn.Controllers
         {
             if (WebSecurity.Login(Telefone, CRM))
             {
-                return RedirectToAction("Index", "Medico");
+                return RedirectToAction("Details", "Medico");
             }
             else
             {
                 ModelState.AddModelError("CRM.Invalido", "CRM ou Telefone incorretos");
-                return View("Login", "Medico");
+                return RedirectToAction("Login");
             }
         }
 
@@ -132,13 +132,13 @@ namespace DoctorOn.Controllers
 
 
         //OPÇÃO DE ATUALIZAR E DELETAR INFORMAÇÕES DE PERFIL DO MEDICO
-        public async Task<ActionResult> Edit(int? Id)
+        public async Task<ActionResult> Edit(int? id)
         {
-            if (Id == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Medico medico = await contextdb.Medicos.FindAsync(Id);
+            Medico medico = await contextdb.Medicos.FindAsync(id);
             if (medico == null)
             {
                 return HttpNotFound();

@@ -1,98 +1,84 @@
 ﻿@model DoctorOn.Entidades.Paciente
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<link href="~/Content/Calendar.css" rel="stylesheet" />
 
-    <div class="form-horizontal">
-        <h4>Paciente</h4>
-        <hr />
+<div class="top">
+    <h1>Editor de Perfil</h1>
+    @using (Html.BeginForm(new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome_completo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome_completo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nome_completo, "", new { @class = "text-danger" })
-            </div>
+
+
+        @Html.LabelFor(model => model.Nome_completo, "Alterar Nome:", new { @class = "formlabel" })
+        @Html.EditorFor(model => model.Nome_completo, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Nome_completo, "", new { @class = "text-danger" })
+
+
+
+
+        @Html.LabelFor(model => model.Cpf, "Alterar CPF:", new { @class = "formlabel" })
+        @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+
+
+
+
+        @Html.LabelFor(model => model.Nome_do_convenio, "Alterar Nome do convenio:", new { @class = "formlabel" })
+        @Html.EnumDropDownListFor(model => model.Nome_do_convenio, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Nome_do_convenio, "", new { @class = "text-danger" })
+
+
+
+
+        @Html.LabelFor(model => model.Matricula_do_convenio, "Alterar numero do convenio:", new { @class = "formlabel" })
+        @Html.EditorFor(model => model.Matricula_do_convenio, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Matricula_do_convenio, "", new { @class = "text-danger" })
+
+
+
+
+        @Html.LabelFor(model => model.Sexo, "Alterar Sexo:", new { @class = "formlabel" })
+        @Html.EnumDropDownListFor(model => model.Sexo, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
+
+
+
+
+        @Html.LabelFor(model => model.Datadenacimento, "Alterar Data de nacimento:", new { @class = "formlabel" })
+        @Html.EditorFor(model => model.Datadenacimento, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Datadenacimento, "", new { @class = "text-danger" })
+
+
+
+
+        @Html.LabelFor(model => model.Endereco, "Alterar Endereço:", new { @class = "formlabel" })
+        @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+
+
+
+
+        @Html.LabelFor(model => model.Telefone, "Alterar Telefone:", new { @class = "formlabel" })
+        @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+
+        <input type="submit" value="Salvar" class="buttonlink uup" />
+    }
+
+
+    @using (Html.BeginForm(new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="">
+            <input type="submit" value="Deletar conta" class="buttonlink slidee" /> |
+            @Html.ActionLink("Voltar para lista", "List", "Medico")
         </div>
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Sexo, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Datadenacimento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Datadenacimento, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Datadenacimento, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome_do_convenio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Nome_do_convenio, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Nome_do_convenio, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Matricula_do_convenio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Matricula_do_convenio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Matricula_do_convenio, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-actions no-color">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

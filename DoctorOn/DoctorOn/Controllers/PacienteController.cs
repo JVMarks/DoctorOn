@@ -55,17 +55,17 @@ namespace DoctorOn.Controllers
                     };
                     pacienteDAO.CreatePaciente(paciente);
                     //WebSecurity.CreateUserAndAccount(model.Email,model.Senha);
-                    return RedirectToAction("List", "Medico");
+                    return RedirectToAction("Details", "Paciente", new { id = paciente.Id });
                 }
                 else
                 {
-                    return View("Create", "Medico");
+                    return View("Create", model);
                 }
             }
             catch (MembershipPasswordException e)
             {
                 ModelState.AddModelError("Paciente.Invalido", e.Message);
-                return View("Create", "Medico");
+                return View("Create", model);
             }
         }
 
@@ -81,12 +81,12 @@ namespace DoctorOn.Controllers
         {
             if (WebSecurity.Login(Cpf, Matricula_do_convenio))
             {
-                return RedirectToAction("Index","Paciente");
+                return RedirectToAction("List", "Medico");
             }
             else
             {
                 ModelState.AddModelError("CRM.Invalido", "CRM ou Telefone incorretos");
-                return View("Login", "Paciente");
+                return RedirectToAction("Login");
             }
         }
 
@@ -98,16 +98,21 @@ namespace DoctorOn.Controllers
             return View();
         }
 
-        /*
-        public ActionResult Index(BuscarPacienteModel model)
+        public async Task<ActionResult> Details(int? id)
         {
-            model.Pacientes = pacienteDAO.FindByUser(model.Id);
-            return View(model);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Paciente paciente = await contextdb.Pacientes.FindAsync(id);
+
+            if (paciente == null)
+            {
+                return HttpNotFound();
+            }
+            return View(paciente);
         }
-         */
-
-
-
 
 
         //OPÇÃO DE ATUALIZAR E DELETAR INFORMAÇÕES DE PERFIL DO PACIENTE
