@@ -148,7 +148,6 @@
     <Compile Include="Controllers\AgendaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
-    <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\AgendaDAO.cs" />
@@ -273,11 +272,6 @@
     <Content Include="Views\Medico\List.cshtml" />
     <Content Include="Views\Paciente\Details.cshtml" />
     <Content Include="Views\Medico\Details.cshtml" />
-    <Content Include="Views\Medicos\Create.cshtml" />
-    <Content Include="Views\Medicos\Delete.cshtml" />
-    <Content Include="Views\Medicos\Details.cshtml" />
-    <Content Include="Views\Medicos\Edit.cshtml" />
-    <Content Include="Views\Medicos\Index.cshtml" />
     <Content Include="Views\Paciente\Delete.cshtml" />
     <Content Include="Views\Medico\Delete.cshtml" />
   </ItemGroup>
